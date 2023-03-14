@@ -1,8 +1,17 @@
 class Post
 
+  def self.post_type
+    [Memo, Link, Task]
+  end
+
+  #вызов всех дочерних классов
+  def self.create(type_index)
+    return post_type[type_index].new
+  end
+
   def initialize
     @created_ad = Time.new
-    @text = text
+    @text = nil
   end
 
   def read_from_console
